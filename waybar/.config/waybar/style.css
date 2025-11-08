@@ -1,0 +1,173 @@
+* {
+    font-family: JetbrainsMono Nerd Font;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+#waybar {
+    background: transparent;
+    color: rgb(255, 120, 51);
+    margin: 8px;
+    border-radius: 12px;
+    padding: 4px;
+}
+
+#workspaces {
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 8px;
+    margin: 4px 8px;
+    padding: 2px;
+}
+
+#workspaces button {
+    color: rgb(255, 120, 51);
+    background: transparent;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin: 2px;
+    font-weight: 600;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    background: rgb(255, 120, 51);
+}
+
+#workspaces button:hover {
+    color: #ffffff;
+    background: rgba(255, 120, 51, 0.5);
+}
+
+#window {
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 8px;
+    margin: 4px 8px;
+    padding: 8px 16px;
+    color: rgb(255, 120, 51);
+    font-weight: 400;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+#clock {
+    background: rgba(30, 30, 30, 0.8);
+    color: rgb(255, 120, 51);
+    padding: 8px 16px;
+    margin: 4px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+#cpu {
+    background: rgba(30, 30, 30, 0.8);
+    color: rgb(255, 120, 51);
+    padding: 8px 12px;
+    margin: 4px 0px;
+}
+
+#memory {
+    background: rgba(30, 30, 30, 0.8);
+    color: rgb(255, 120, 51);
+    padding: 8px 12px;
+    margin: 4px 0px;
+}
+
+#network {
+    background: rgba(30, 30, 30, 0.8);
+    color: rgb(255, 120, 51);
+    padding: 8px 12px;
+    margin: 4px 0px;
+}
+
+#pulseaudio {
+    background: rgba(30, 30, 30, 0.8);
+    color: rgb(255, 120, 51);
+    padding: 8px 12px;
+    margin: 4px 0px 4px 8px;
+    border-radius: 8px 0 0 8px;
+}
+
+#backlight {
+    background: rgba(30, 30, 30, 0.8);
+    color: rgb(255, 120, 51);
+    padding: 8px 12px;
+    margin: 4px 0px;
+}
+
+#battery {
+    background: rgba(30, 30, 30, 0.8);
+    color: rgb(255, 120, 51);
+    padding: 8px 12px;
+    margin: 4px 0px;
+    font-weight: 600;
+}
+
+#custom-power {
+    background: rgba(30, 30, 30, 0.8);
+    color: rgb(255, 120, 51);
+    padding: 8px 12px;
+    margin: 4px 8px 4px 0px;
+    border-radius: 0 8px 8px 0;
+    font-weight: 600;
+}
+
+#window:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#battery:hover,
+#custom-power:hover,
+#clock:hover {
+    color: #ffffff;
+    background: rgba(255, 120, 51, 0.3);
+}
+
+#window:active,
+#cpu:active,
+#memory:active,
+#network:active,
+#pulseaudio:active,
+#backlight:active,
+#battery:active,
+#custom-power:active,
+#clock:active {
+    color: #ffffff;
+    background: rgb(255, 120, 51);
+}
+
+#battery.warning:not(.charging) {
+    color: rgb(255, 120, 51);
+    background: rgba(255, 120, 51, 0.2);
+}
+
+#battery.warning:not(.charging):hover {
+    color: #ffffff;
+    background: rgba(255, 120, 51, 0.4);
+}
+
+#battery.critical:not(.charging) {
+    color: #ff0000;
+    background: rgba(30, 30, 30, 0.8);
+}
+
+#battery.critical:not(.charging):hover {
+    color: #ffffff;
+    background: rgba(255, 0, 0, 0.4);
+}
+
+#battery.charging {
+    color: #00ff00;
+    background: rgba(30, 30, 30, 0.8);
+}
+
+#battery.charging:hover {
+    color: #ffffff;
+    background: rgba(0, 255, 0, 0.3);
+}

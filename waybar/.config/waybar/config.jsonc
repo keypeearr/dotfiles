@@ -1,0 +1,130 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "backlight",
+    "cpu",
+    "memory",
+    "network",
+    "battery#internal",
+    "battery#external",
+    "custom/power"
+  ],
+  "hyprland/workspaces": {
+    "format": "{name}: {icon}",
+    "format-icons": {
+        "active": "",
+        "default": ""
+    }
+  },
+  "hyprland/window": {
+    "separate-outputs": true,
+    "format": "{initialTitle}",
+    "icon": true,
+    "icon-size": 18
+  },
+  "clock": {
+    "timezone": "Asia/Manila",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%d/%m/%Y - %H:%M:%S}",
+    "interval": 1,
+    "on-click": "cal",
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "[░░░░░░░░░░] ",
+    "format-icons": [
+      // "default": ["", "", " "]
+      "[░░░░░░░░░░] ",
+      "[█░░░░░░░░░] ",
+      "[██░░░░░░░░] ",
+      "[███░░░░░░░] ",
+      "[████░░░░░░] ",
+      "[█████░░░░░] ",
+      "[██████░░░░] ",
+      "[███████░░░] ",
+      "[████████░░] ",
+      "[█████████░] ",
+      "[██████████] "
+    ],
+    "on-click": "pavucontrol"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+
+      "[░░░░░░░░░░] 🌑",
+      "[█░░░░░░░░░] 🌑",
+      "[██░░░░░░░░] 🌒",
+      "[███░░░░░░░] 🌒",
+      "[████░░░░░░] 🌒",
+      "[█████░░░░░] 🌓",
+      "[██████░░░░] 🌓",
+      "[███████░░░] 🌔",
+      "[████████░░] 🌔",
+      "[█████████░] 🌕",
+      "[██████████] 🌕",
+    ]
+  },
+  "backlight/slider": {
+    "min": 10,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight"
+  },
+  "cpu": {
+    "interval": 1,
+    "format": " {usage:>2}%",
+    "on-click": "wezterm start btop &",
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {percentage}%",
+    "on-click": "wezterm start btop &",
+  },
+  "network": {
+    "format-wifi": "󰤢 {bandwidthDownBits}",
+    "format-ethernet": "󰈀 {bandwidthDownBits}",
+    "format-disconnected": "󰤠 No Network",
+    "interval": 5,
+    "tooltip": false,
+    "on-click": "wezterm start impala &",
+  },
+  "battery#internal": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25,
+    "on-click": "tlpui &",
+  },
+  "battery#external": {
+    "bat": "BAT1",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25,
+    "on-click": "tlpui",
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout &",
+    "format": "⏻"
+  }
+}
