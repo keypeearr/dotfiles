@@ -1,6 +1,7 @@
 {
   "layer": "top",
   "position": "top",
+  "margin": "10px 10px 0px 10px",
   "modules-left": [
     "hyprland/workspaces"
   ],
@@ -96,7 +97,7 @@
     "format-disconnected": "󰤠 No Network",
     "interval": 5,
     "tooltip": false,
-    "on-click": "wezterm start impala &",
+    "on-click": "wezterm start nmtui &",
   },
   "battery#internal": {
     "bat": "BAT0",
