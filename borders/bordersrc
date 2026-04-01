@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# JankyBorders config - Purple theme matching sketchybar
+# Colors from ~/.config/sketchybar/colors.lua
+
+options=(
+    style=round
+    width=5.0
+    hidpi=on
+    active_color=0xc0a064c8
+    inactive_color=0x405a4670
+)
+
+borders "${options[@]}"
