@@ -39,6 +39,16 @@
             "format": "{#bright_cyan} Hardware "
         },
         {
+            "condition": {
+                "system": "macOS"
+            },
+            "type": "os",
+            "key": "║{#cyan}│ {icon}  macOS     │{$4}│{#keys}║{$2}"
+        },
+        {
+            "condition": {
+                "!system": "macOS"
+            },
             "type": "os",
             "key": "║{#cyan}│ {icon}  {sysname}     │{$4}│{#keys}║{$2}"
         },
