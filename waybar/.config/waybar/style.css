@@ -1,6 +1,5 @@
 * {
     font-family: "SF Pro Display", "JetbrainsMono Nerd Font Propo";
-    /* font-family: JetbrainsMono Nerd Font; */
     font-size: 14px;
     font-weight: lighter;
     color: rgba(200, 170, 230, 1);
@@ -88,6 +87,7 @@
 #network:hover,
 #pulseaudio:hover,
 #backlight:hover,
+#bluetooth:hover,
 #battery:hover,
 #custom-power:hover,
 #clock:hover {

@@ -1,4 +1,5 @@
 {
+  "reload_style_on_change": true,
   "layer": "top",
   "position": "top",
   "margin": "10px 10px 0px 10px",
@@ -14,6 +15,7 @@
     "cpu",
     "memory",
     "network",
+    "bluetooth",
     "battery#internal",
     "battery#external",
     "custom/power"
@@ -24,12 +26,6 @@
         "active": "",
         "default": ""
     }
-  },
-  "hyprland/window": {
-    "separate-outputs": true,
-    "format": "{initialTitle}",
-    "icon": true,
-    "icon-size": 18
   },
   "clock": {
     "timezone": "Asia/Manila",
@@ -116,6 +112,15 @@
     "interval": 5,
     "tooltip": false,
     "on-click": "wezterm start nmtui &",
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {device_alias}",
+    "format-on": "",
+    "format-off": "󰂲",
+    "format-disabled": "",
+    "tooltip": false,
+    "on-click": "wezterm start bluetui &",
   },
   "battery#internal": {
     "bat": "BAT0",
