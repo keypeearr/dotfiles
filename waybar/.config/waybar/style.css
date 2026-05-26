@@ -1,30 +1,43 @@
 * {
     font-family: "SF Pro Display", "JetbrainsMono Nerd Font Propo";
     font-size: 14px;
-    font-weight: lighter;
+    font-weight: 400;
     color: rgba(200, 170, 230, 1);
 }
 
+/* =========================
+   WAYBAR ROOT (IMPORTANT)
+   ========================= */
 #waybar {
+    background: transparent;
+    border: none;
+}
+
+/* =========================
+   INNER CONTAINER (ROUNDED SURFACE)
+   ========================= */
+/* This is the actual visible bar */
+#waybar>box {
     background-color: rgba(30, 20, 45, 1);
     border: 1px solid rgba(45, 27, 61, 1);
     border-radius: 10px;
 
-    margin-right: 30px;
-    padding-left: 30px;
+    padding: 0px;
 }
 
-
+/* =========================
+   WORKSPACES
+   ========================= */
 #workspaces {
     margin: 8px 8px;
     padding: 2px;
 }
 
 #workspaces button {
-    border-radius: 6px;
     padding: 6px 12px;
     margin: 2px;
-    font-weight: 600;
+    background: transparent;
+    border: none;
 }
 
 #workspaces button.active {
@@ -35,24 +48,19 @@
     color: rgba(200, 170, 230, 1);
 }
 
+/* =========================
+   MODULES
+   ========================= */
 #clock {
     padding: 8px 16px;
     margin: 4px 8px;
-    border-radius: 8px;
     font-weight: 600;
 }
 
-#cpu {
-    padding: 8px 12px;
-    margin: 4px 0px;
-}
-
-#memory {
-    padding: 8px 12px;
-    margin: 4px 0px;
-}
-
-#network {
+#cpu,
+#memory,
+#network,
+#backlight {
     padding: 8px 12px;
     margin: 4px 0px;
 }
@@ -61,11 +69,6 @@
     padding: 8px 12px;
     margin: 4px 0px 4px 8px;
     border-radius: 8px 0 0 8px;
-}
-
-#backlight {
-    padding: 8px 12px;
-    margin: 4px 0px;
 }
 
 #battery {
@@ -81,6 +84,9 @@
     font-weight: 600;
 }
 
+/* =========================
+   HOVER STATES
+   ========================= */
 #window:hover,
 #cpu:hover,
 #memory:hover,
@@ -106,6 +112,9 @@
     color: rgba(200, 170, 230, 1);
 }
 
+/* =========================
+   BATTERY STATE
+   ========================= */
 #battery.charging {
     color: #00ff00;
 }
