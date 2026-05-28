@@ -2,15 +2,18 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(TERMINAL))
-local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(FILEMANAGER))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(BROWSER))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(MENU))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
+hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("killall waybar && waybar &"))
+
+-- Screenshots
+hl.bind("PRINT", hl.dsp.exec_cmd(SCREENSHOT .. " -m output"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(SCREENSHOT .. " -m region"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
