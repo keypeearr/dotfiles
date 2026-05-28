@@ -3,117 +3,108 @@
   "layer": "top",
   "position": "top",
   "margin": "10px 10px 0px 10px",
+
+  /* =========================================================
+     MODULE LAYOUT
+     ========================================================= */
+
   "modules-left": [
-    "hyprland/workspaces"
-  ],
-  "modules-center": [
-    "clock"
-  ],
-  "modules-right": [
-    "pulseaudio",
-    "backlight",
+    "clock",
     "cpu",
     "memory",
-    "network",
+    "network"
+  ],
+
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-right": [
     "bluetooth",
-    "battery#internal",
-    "battery#external",
+    "pulseaudio",
+    "backlight",
+    "custom/battery",
     "custom/power"
   ],
+
+  /* =========================================================
+     WORKSPACES
+     ========================================================= */
+
   "hyprland/workspaces": {
     "format": "{name}: {icon}",
     "format-icons": {
-        "active": "",
-        "default": ""
+      "active": "",
+      "default": ""
     }
   },
+
+  /* =========================================================
+     CLOCK
+     ========================================================= */
+
   "clock": {
     "timezone": "Asia/Manila",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%m/%d - %H:%M}",
+    "format": "{:%H:%M}",
     "interval": 60,
-    "on-click": "cal",
-  },
-  "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    // "format-muted": "[░░░░░░░░░░] ",
-    "format-muted": "",
-    "format-icons": {
-      "default": [
-          "",
-          "",
-          ""
-        ],
-      // "[░░░░░░░░░░] ",
-      // "[█░░░░░░░░░] ",
-      // "[██░░░░░░░░] ",
-      // "[███░░░░░░░] ",
-      // "[████░░░░░░] ",
-      // "[█████░░░░░] ",
-      // "[██████░░░░] ",
-      // "[███████░░░] ",
-      // "[████████░░] ",
-      // "[█████████░] ",
-      // "[██████████] "
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "on-scroll": 1,
+      "format": {
+        "months":   "<span foreground='#c8aae6'><b>{}</b></span>",
+        "days":     "<span foreground='#c8aae6'>{}</span>",
+        "weekdays": "<span foreground='#a064c8'><b>{}</b></span>",
+        "today":    "<span foreground='#ff6699'><b><u>{}</u></b></span>"
+      }
     },
-    "scroll-step": 1,
-    "on-click": "pavucontrol"
+    "on-click": "wezterm start -- cal &"
   },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": {
-        "default": [
-          "🌑",
-          "🌑",
-          "🌒",
-          "🌒",
-          "🌒",
-          "🌓",
-          "🌓",
-          "🌔",
-          "🌔",
-          "🌕",
-          "🌕",
-        ],
-      // "[░░░░░░░░░░] 🌑",
-      // "[█░░░░░░░░░] 🌑",
-      // "[██░░░░░░░░] 🌒",
-      // "[███░░░░░░░] 🌒",
-      // "[████░░░░░░] 🌒",
-      // "[█████░░░░░] 🌓",
-      // "[██████░░░░] 🌓",
-      // "[███████░░░] 🌔",
-      // "[████████░░] 🌔",
-      // "[█████████░] 🌕",
-      // "[██████████] 🌕",
-    },
-  },
+
+  /* =========================================================
+     CPU
+     ========================================================= */
+
   "cpu": {
     "interval": 1,
     "format": " {usage:>2}%",
-    "on-click": "wezterm start btop &",
+    "on-click": "wezterm start btop &"
   },
+
+  /* =========================================================
+     MEMORY
+     ========================================================= */
+
   "memory": {
     "interval": 30,
     "format": " {percentage}%",
-    "on-click": "wezterm start btop &",
+    "on-click": "wezterm start btop &"
   },
+
+  /* =========================================================
+     NETWORK
+     ========================================================= */
+
   "network": {
     "format-wifi": "{icon} {bandwidthDownBits}",
     "format-icons": [
-        " ",
-        "⡇",
-        "⣇",
-        "⣧",
-        "⣷",
-        "⣿",
+      " ",
+      "⡇",
+      "⣇",
+      "⣧",
+      "⣷",
+      "⣿"
     ],
     "format-disconnected": "󰤠",
     "interval": 5,
     "tooltip": false,
-    "on-click": "wezterm start nmtui &",
+    "on-click": "wezterm start nmtui &"
   },
+
+  /* =========================================================
+     BLUETOOTH
+     ========================================================= */
+
   "bluetooth": {
     "format": "",
     "format-connected": " {device_alias}",
@@ -121,8 +112,51 @@
     "format-off": "󰂲",
     "format-disabled": "",
     "tooltip": false,
-    "on-click": "wezterm start bluetui &",
+    "on-click": "wezterm start bluetui &"
   },
+
+  /* =========================================================
+     PULSEAUDIO
+     ========================================================= */
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+  },
+
+  /* =========================================================
+     BACKLIGHT
+     ========================================================= */
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": {
+      "default": [
+        "🌑",
+        "🌑",
+        "🌒",
+        "🌒",
+        "🌒",
+        "🌓",
+        "🌓",
+        "🌔",
+        "🌔",
+        "🌕",
+        "🌕"
+      ]
+    }
+  },
+
+  /* =========================================================
+     INTERNAL BATTERY
+     ========================================================= */
+
   "battery#internal": {
     "bat": "BAT0",
     "interval": 60,
@@ -133,8 +167,13 @@
     "format": "{icon} {capacity}%",
     "format-icons": ["", "", "", "", ""],
     "max-length": 25,
-    "on-click": "tlpui &",
+    "on-click": "tlpui &"
   },
+
+  /* =========================================================
+     EXTERNAL BATTERY
+     ========================================================= */
+
   "battery#external": {
     "bat": "BAT1",
     "interval": 60,
@@ -145,8 +184,25 @@
     "format": "{icon} {capacity}%",
     "format-icons": ["", "", "", "", ""],
     "max-length": 25,
-    "on-click": "tlpui",
+    "on-click": "tlpui"
   },
+
+  /* =========================================================
+     CUSTOM BATTERY (SCRIPT MODULE)
+     ========================================================= */
+
+  "custom/battery": {
+    "exec": "~/.config/waybar/scripts/battery-status.sh",
+    "interval": 10,
+    "return-type": "json",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/battery-menu.sh"
+  },
+
+  /* =========================================================
+     POWER BUTTON
+     ========================================================= */
+
   "custom/power": {
     "tooltip": false,
     "on-click": "wlogout &",
