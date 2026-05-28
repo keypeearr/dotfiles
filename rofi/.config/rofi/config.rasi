@@ -1,111 +1,119 @@
 * {
-    font: "JetBrainsMono Nerd Font 12";
-    g-spacing: 20px;
-    g-margin: 0;
-    b-radius: 10px;
-    g-padding: 8px;
-    w-border: 1px solid;
-    w-border-color: rgba(45, 27, 61, 1);
-    w-padding: 12px;
-    b-color: rgba(30, 20, 45, 1);
-    white: rgba(200, 170, 230, 1);
-    gray: rgba(160, 100, 200, 0.6);
-    hl-color: rgba(160, 100, 200, 1);
-    wbg-color: rgba(30, 20, 45, 1);
+    font: "JetBrainsMono Nerd Font 11";
+
+    background: rgba(30, 20, 45, 100%);
+    foreground: rgba(200, 170, 230, 100%);
+
+    lightbg: rgba(45, 27, 61, 70%);
+    separatorcolor: rgba(45, 27, 61, 100%);
+
+    selected-normal-background: rgba(160, 100, 200, 25%);
+    selected-normal-foreground: rgba(220, 190, 240, 100%);
+
+    b-radius: 18px;
 }
 
-configuration {
-    modi: "drun";
-    show-icons: true;
-    display-drun: "";
-}
-
-listview {
-    columns: 1;
-    lines: 7;
-    fixed-height: true;
-    fixed-columns: true;
-    cycle: true;
-    scrollbar: false;
-    border: 0px solid;
-}
+/* =========================================================
+   WINDOW (mac-style floating panel)
+   ========================================================= */
 
 window {
-    transparency: "real";
-    width: 450px;
-    border-radius: @b-radius;
-    background-color: @wbg-color;
-    border: @w-border;
-    border-color: @w-border-color;
-    padding: @w-padding;
+    width: 380px;
+
+    background-color: var(background);
+
+    border: 1;
+    border-color: var(separatorcolor);
+
+    border-radius: 18px;
+
+    padding: 10;
+}
+
+/* =========================================================
+   MAIN (THIS CONTROLS OVERALL HEIGHT FEEL)
+   ========================================================= */
+
+mainbox {
+    spacing: 6px;
+    padding: 6;
+}
+
+/* =========================================================
+   INPUT (mac search bar feel)
+   ========================================================= */
+
+inputbar {
+    children: [ "prompt", "entry" ];
+    spacing: 8px;
+
+    background-color: var(lightbg);
+
+    border: 1;
+    border-color: var(separatorcolor);
+
+    border-radius: 18px;
+
+    padding: 8;
 }
 
 prompt {
-    padding-right: @w-padding;
-    text-color: @white;
-}
-
-inputbar {
-    children: ["prompt", "entry"];
-    spacing: @g-spacing;
-    border: 1px solid;
-    border-color: rgba(45, 27, 61, 1);
-    border-radius: @b-radius;
-    padding: @w-padding;
+    text-color: rgba(160, 100, 200, 100%);
 }
 
 entry {
-    placeholder: "Search Apps";
-    text-color: @white;
-    placeholder-color: @gray;
+    text-color: var(foreground);
+    placeholder: "Search apps...";
+    placeholder-color: rgba(160, 100, 200, 60%);
 }
 
-mainbox {
-    spacing: @g-spacing;
-    margin: @g-margin;
-    padding: @g-padding;
-    children: ["inputbar", "listview", "message"];
+/* =========================================================
+   LIST (THIS IS KEY FOR HEIGHT CONTROL)
+   ========================================================= */
+
+listview {
+    spacing: 4px;
+
+    lines: 6;              /* 👈 THIS controls height */
+    fixed-height: true;
+
+    scrollbar: false;
 }
+
+/* =========================================================
+   ELEMENTS (compact mac rows)
+   ========================================================= */
 
 element {
-    spacing: @g-spacing;
-    margin: @g-margin;
-    padding: @g-padding;
-    border: 0px solid;
-    border-radius: @b-radius;
-    border-color: @b-color;
-    background-color: transparent;
-    text-color: @white;
+    padding: 6px 10px;
+    border-radius: 12px;
+    text-color: var(foreground);
 }
 
-element normal.normal {
-    background-color: transparent;
-    text-color: @white;
-}
-
-element alternate.normal {
-    background-color: transparent;
-    text-color: @white;
-}
-
-element selected.active {
-    background-color: @hl-color;
-    text-color: rgba(200, 170, 230, 1);
-}
+/* =========================================================
+   SELECTED (mac highlight pill)
+   ========================================================= */
 
 element selected.normal {
-    background-color: @hl-color;
-    text-color: rgba(200, 170, 230, 1);
+    background-color: var(selected-normal-background);
+    text-color: var(selected-normal-foreground);
 }
 
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
 message {
-    background-color: rgba(160, 100, 200, 0.3);
-    border: 0px solid;
-    padding: @g-padding;
-    border-radius: @b-radius;
+    background-color: var(lightbg);
+
+    border: 1;
+    border-color: var(separatorcolor);
+
+    border-radius: 18px;
+
+    padding: 8;
 }
 
 textbox {
-    text-color: @white;
-    padding: @g-padding;
+    text-color: var(foreground);
 }
